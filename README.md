@@ -34,3 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Configuración de conexión a la base de datos
+
+Antes de ejecutar la aplicación, asegúrate de configurar correctamente la conexión a tu base de datos MySQL. Para hacerlo, sigue estos pasos:
+
+1. Copia el archivo `mysql.js.example` y renómbralo a `mysql.js`.
+2. Abre el archivo `mysql.js` en un editor de texto.
+3. Reemplaza los valores de `host`, `user`, `password` y `database` con tus propias credenciales de MySQL.
+
+```javascript
+// mysql.js dentro de la carpeta libs
+import mysql from 'serverless-mysql';
+
+// Configura la conexión a tu base de datos MySQL
+export const conn = mysql({
+    config: {
+        host: 'localhost', // Cambia esto al host de tu servidor MySQL
+        user: 'tu_usuario_mysql', // Cambia esto a tu nombre de usuario de MySQL
+        password: 'tu_contraseña_mysql', // Cambia esto a tu contraseña de MySQL
+        port: 3306, // Puede que necesites cambiar el puerto si no es el predeterminado
+        database: 'tu_base_de_datos' // Cambia esto a tu nombre de base de datos MySQL
+    }
+});
+
